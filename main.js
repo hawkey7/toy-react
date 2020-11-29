@@ -1,4 +1,4 @@
-import { React, Component, render } from './toy-react'
+import { React, Component, render } from './toy-react3'
 
 // class MyComponent extends Component {
 //   constructor() {
@@ -40,7 +40,7 @@ class Board extends Component {
     return (
       <Square
         value={this.props.squares[i]}
-        onClick={() => this.props.onClick(i)}
+        onClick={this.props.onClick.bind(this, i)}
       />
     );
   }
@@ -151,6 +151,9 @@ class Game extends Component {
 // ========================================
 
 render(<Game />, document.getElementById("root"));
+
+// let game = <Game />
+// console.log(game.vdom)
 
 function calculateWinner(squares) {
   const lines = [
